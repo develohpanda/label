@@ -2,20 +2,31 @@
   "name": "Notifenv",
   "description": "A simple browser action to add a color and header for the current environment.",
   "version": "0.1",
-  "permissions":[
+  "permissions": [
     "tabs",
     "debugger"
   ],
-  "content_scripts":[
+  "content_scripts": [
     {
-      "matches": ["https://*/*", "http://*/*"],
-      "js": ["content.js"],
+      "matches": [
+        "https://*/*",
+        "http://*/*"
+      ],
+      "js": [
+        "content.js"
+      ],
       "run_at": "document_end"
     }
   ],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": [
+      "background.js"
+    ],
     "persistent": false
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
   },
   "manifest_version": 2
 }
