@@ -4,8 +4,14 @@
   "version": "0.1",
   "permissions":[
     "tabs",
-    "bookmarks",
     "debugger"
+  ],
+  "content_scripts":[
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
   ],
   "background": {
     "scripts": ["background.js"],
