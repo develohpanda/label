@@ -4,6 +4,7 @@
   "version": "0.1",
   "permissions": [
     "tabs",
+    "storage",
     "debugger"
   ],
   "content_scripts": [
@@ -13,14 +14,18 @@
         "http://*/*"
       ],
       "js": [
-        "content.js"
+        "jquery-3.3.1.min.js",
+        "content.js",
+        "constants.js"
       ],
       "run_at": "document_end"
     }
   ],
   "background": {
     "scripts": [
-      "background.js"
+      "jquery-3.3.1.min.js",
+      "background.js",
+      "constants.js"
     ],
     "persistent": false
   },
