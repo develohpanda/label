@@ -2,6 +2,7 @@
   "name": "Label",
   "description": "A simple extension to add a sticky label to the top of the page, depending on the hostname.",
   "version": "0.1",
+  "author": "Opender Singh",
   "permissions": [
     "tabs",
     "storage"

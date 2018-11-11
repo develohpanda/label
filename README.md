@@ -6,8 +6,11 @@ No more testing on the wrong environment and pulling your hair out as to why you
 
 ## Supported browsers
 
-- Chrome
-- Firefox
+- [x] Chrome
+- [x] Firefox
+- [] Microsoft Edge
+- [] Safari
+- [] Brave
 
 ## Config
 Initially this is configured via a JSON object with the following schema:
@@ -74,3 +77,4 @@ To debug in Firefox, you need to add an app id in order to use the storage API. 
 - Make overlay more robust - does not work in certain cases with existing headers. Possibly a z-index issue.
 - Add a configuration UI rather than using JSON
 - Browser testing
+- Microsoft Edge: resolve viewport size not being recognized when setting `width: 100%` via the Bootstrap `.container` class.
