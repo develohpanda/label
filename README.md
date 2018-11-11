@@ -52,9 +52,21 @@ For example:
 ]
 ```
 
-## Contribute
+## Develop and Contribute
 
 Simply clone the repository, open the extensions tab in Chrome ([chrome://extensions](chrome://extensions)), select `Load Unpacked` and then select the root folder.
+
+### Firefox
+
+To debug in Firefox, you need to add an app id in order to use the storage API. Do this by adding the following property to the `manifest.json`.
+
+```js
+"browser_specific_settings": {
+    "gecko": {
+        "id": "{b7a32ab9-5d49-4dfd-a2c6-b50ffc25e140}"
+    }
+}
+```
 
 ## Tasks
 

@@ -30,10 +30,5 @@
     "default_popup": "index.html"
   },
   "manifest_version": 2,
-  "incognito": "spanning",
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "{b7a32ab9-5d49-4dfd-a2c6-b50ffc25e140}"
-    }
-  }
+  "incognito": "spanning"
 }
