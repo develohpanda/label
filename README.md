@@ -1,8 +1,8 @@
 # Label
 
-How many times have you been testing on your website and realised you've been on the wrong environment? This is a simple extension to add a sticky label to the top of your webpage page, depending on the hostname. 
+Use this to differentiate your `dev`, `test`, and `production` environments by adding a loud color and label, without mucking with your source code.
 
-For example, use this to differentiate your `dev`, `test`, and `production` environments by adding a loud color and label, without mucking with your source code.
+No more testing on the wrong environment and pulling your hair out as to why your data is differnet, or throwing off your analytics with over 9000 hits to the same page by the same user.
 
 ## Supported browsers
 
@@ -58,6 +58,6 @@ Simply clone the repository, open the extensions tab in Chrome ([chrome://extens
 ## Tasks
 
 - Support for wildcards when matching host names (eg. `dev.*.website.com`)
-- Make overlay more robust - does not work in certain cases (eg. google.com or twitter.com)
+- Make overlay more robust - does not work in certain cases with existing headers. Possibly a z-index issue.
 - Add a configuration UI rather than using JSON
 - Browser testing
