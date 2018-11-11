@@ -6,10 +6,14 @@ No more testing on the wrong environment and pulling your hair out as to why you
 
 ## Browser Support
 
-:heavy_check_mark: Chrome
-:heavy_check_mark: Firefox
+:heavy_check_mark: Google Chrome
+
+:heavy_check_mark: Mozilla Firefox
+
 :x: Microsoft Edge
+
 :heavy_minus_sign: Safari
+
 :heavy_minus_sign: Brave
 
 ## Config
