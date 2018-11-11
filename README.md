@@ -7,6 +7,7 @@ No more testing on the wrong environment and pulling your hair out as to why you
 ## Supported browsers
 
 - Chrome
+- Firefox
 
 ## Config
 Initially this is configured via a JSON object with the following schema:

@@ -1,17 +1,22 @@
-chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+browser.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     if (changeInfo.status == 'complete' && tab.active) {
-        chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs) {
+        browser.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs) {
             var url = tab.url;
 
-            chrome.storage.sync.get({
+            browser.storage.sync.get({
                 jsonSettings: defaultSettings
             }, function (items) {
                 var jsonSettings = JSON.parse(items.jsonSettings);
                 jsonSettings.map(function (value) {
-                    var matched = match_url(url, value.hosts, bkg);
+                    var matched = match_url(url, value.hosts);
 
                     if (matched) {
-                        chrome.tabs.sendMessage(tabId, { showHeader: true, label: value.title, color: value.color })
+                        var objectToSend = { showHeader: true, label: value.label, color: value.color };
+                        browser.tabs.sendMessage(tabId, objectToSend)
+                        .then(response => {
+                            console.log("Response from content script.")
+                        }).catch(onError)
+                        
                         return false; // break the loop
                     }
                 })
@@ -20,7 +25,11 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     }
 })
 
-var match_url = function (url, hosts, bkg) {
+var onError = function(error) {
+    console.error(`Error: ${error}`);
+}
+
+var match_url = function (url, hosts) {
     var matched = false;
 
     hosts.map(function (host) {
