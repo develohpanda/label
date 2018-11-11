@@ -7,9 +7,7 @@
 </head>
 
 <body>
-
-
-    <div class="container">
+    <div class="container-fluid mt-2 mb-2">
         <div class="row justify-content-between">
             <div class="col-auto">
                 <h3>Settings</h3>
@@ -25,13 +23,15 @@
         <div class="row justify-content-between">
             <div class="col-auto">
                 <button type="button" class="btn btn-primary btn-sm btn-block" id="save">Save</button>
-                <p id="status"></p>
             </div>
-            <div class="col-auto">
-                <button type="button" class="btn btn-outline-secondary btn-sm btn-block" id="populateDefault">Populate Default</button>
+            <div class="col">
+                <span class="align-middle" id="status"></span>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-outline-secondary btn-sm btn-block float-right" id="populateDefault">Populate
+                    Default</button>
             </div>
         </div>
-
     </div>
 
     <script src="js/jquery-3.3.1.slim.min.js"></script>
