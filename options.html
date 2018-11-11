@@ -8,20 +8,37 @@
 
 <body>
 
-    <label for="name">JSON Settings</label>
 
-    <button id="populateDefault">Populate Default</button>
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-auto">
+                <h3>Settings</h3>
+            </div>
+        </div>
 
-    <textarea id="jsonTextArea" rows="15" cols="75">
-</textarea>
+        <div class="row">
+            <div class="col">
+                <textarea id="jsonTextArea" rows="15" cols="50"></textarea>
+            </div>
+        </div>
 
-    <button id="save">Save</button>
-    <div id="status"></div>
+        <div class="row justify-content-between">
+            <div class="col-auto">
+                <button type="button" class="btn btn-primary btn-sm btn-block" id="save">Save</button>
+                <p id="status"></p>
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-outline-secondary btn-sm btn-block" id="populateDefault">Populate Default</button>
+            </div>
+        </div>
 
-    <script src="js/jquery-3.2.1.min.js"></script>
+    </div>
+
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/constants.js"></script>
     <script src="js/options.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
