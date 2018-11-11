@@ -1,5 +1,4 @@
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    var bkg = chrome.extension.getBackgroundPage();
     if (changeInfo.status == 'complete' && tab.active) {
         chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs) {
             var url = tab.url;
@@ -12,8 +11,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
                     var matched = match_url(url, value.hosts, bkg);
 
                     if (matched) {
-                        chrome.tabs.sendMessage(tabId, { showHeader: true, environment: value.title, color: value.color })
-                        bkg.console.info("sent message to runtime");
+                        chrome.tabs.sendMessage(tabId, { showHeader: true, label: value.title, color: value.color })
                         return false; // break the loop
                     }
                 })
@@ -26,11 +24,9 @@ var match_url = function (url, hosts, bkg) {
     var matched = false;
 
     hosts.map(function (host) {
-        bkg.console.info("Matching with " + host);
         var res = getHost(url).match(host);
 
         if (getHost(url) === host) {
-            bkg.console.info("Matched with " + host);
             matched = true;
             return false; // break the loop
         }

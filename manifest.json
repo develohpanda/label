@@ -1,11 +1,10 @@
 {
-  "name": "Notifenv",
-  "description": "A simple browser action to add a color and header for the current environment.",
+  "name": "Label",
+  "description": "A simple extension to add a sticky label to the top of the page, depending on the hostname.",
   "version": "0.1",
   "permissions": [
     "tabs",
-    "storage",
-    "debugger"
+    "storage"
   ],
   "content_scripts": [
     {

@@ -1,13 +1,13 @@
 const defaultSettings = `[    
     {
-        "title": "PRODUCTION",
+        "label": "PRODUCTION",
         "color": "#ff8000",
         "hosts": [
             ""
         ]
     },
     {
-        "title": "TEST",
+        "label": "TEST",
         "color": "#006400",
         "hosts": [
             ""
