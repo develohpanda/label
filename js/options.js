@@ -1,7 +1,7 @@
 // Saves options to chrome.storage
 function save_options() {
     var jsonSettings = document.getElementById('jsonTextArea').value;
-    
+
     chrome.storage.sync.set({
         jsonSettings: jsonSettings
     }, function () {
@@ -25,7 +25,7 @@ function restore_options() {
     });
 }
 
-function populate_default(){
+function populate_default() {
     document.getElementById('jsonTextArea').value = defaultSettings;
 }
 

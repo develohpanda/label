@@ -8,7 +8,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
                 jsonSettings: defaultSettings
             }, function (items) {
                 var jsonSettings = JSON.parse(items.jsonSettings);
-                $.each(jsonSettings, function (i, value) {
+                jsonSettings.map(function (value) {
                     var matched = match_url(url, value.hosts, bkg);
 
                     if (matched) {
@@ -22,10 +22,10 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     }
 })
 
-function match_url(url, hosts, bkg) {
+var match_url = function (url, hosts, bkg) {
     var matched = false;
 
-    $.each(hosts, function (i, host) {
+    hosts.map(function (host) {
         bkg.console.info("Matching with " + host);
         var res = getHost(url).match(host);
 
@@ -40,7 +40,7 @@ function match_url(url, hosts, bkg) {
 }
 
 // Why do it this way? Why is this different to the above method?
-var getHost = function(href) {
+var getHost = function (href) {
     var l = document.createElement("a");
     l.href = href;
     return l.hostname;
