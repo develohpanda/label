@@ -1,3 +1,9 @@
+window.browser = (function () {
+    return window.msBrowser ||
+        window.browser ||
+        window.chrome;
+})();
+
 function save_options() {
     var jsonSettings = document.getElementById('jsonTextArea').value;
     

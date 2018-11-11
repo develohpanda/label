@@ -1,3 +1,9 @@
+window.browser = (function () {
+    return window.msBrowser ||
+        window.browser ||
+        window.chrome;
+})();
+
 browser.runtime.onMessage.addListener(request => {
     if (request.showHeader) {
         var divToolbar = document.createElement('div');
@@ -23,6 +29,4 @@ browser.runtime.onMessage.addListener(request => {
         document.body.prepend(divToolbar);
         divToolbar.appendChild(labelDiv);
     }
-
-    return Promise.resolve({response: "Message processed."})
 })

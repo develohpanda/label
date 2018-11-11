@@ -1,33 +1,31 @@
+window.browser = (function () {
+    return window.msBrowser ||
+        window.browser ||
+        window.chrome;
+})();
+
+
 browser.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    if (changeInfo.status == 'complete' && tab.active) {
-        browser.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs) {
-            var url = tab.url;
+    if (changeInfo.status == 'complete') {
+        var url = tab.url;
 
-            browser.storage.sync.get({
-                jsonSettings: defaultSettings
-            }, function (items) {
-                var jsonSettings = JSON.parse(items.jsonSettings);
-                jsonSettings.map(function (value) {
-                    var matched = match_url(url, value.hosts);
+        browser.storage.sync.get({
+            jsonSettings: defaultSettings
+        }, function (items) {
+            var jsonSettings = JSON.parse(items.jsonSettings);
+            jsonSettings.map(function (value) {
+                var matched = match_url(url, value.hosts);
 
-                    if (matched) {
-                        var objectToSend = { showHeader: true, label: value.label, color: value.color };
-                        browser.tabs.sendMessage(tabId, objectToSend)
-                        .then(response => {
-                            console.log("Response from content script.")
-                        }).catch(onError)
-                        
-                        return false; // break the loop
-                    }
-                })
-            });
+                if (matched) {
+                    var objectToSend = { showHeader: true, label: value.label, color: value.color };
+                    browser.tabs.sendMessage(tabId, objectToSend)
+
+                    return false; // break the loop
+                }
+            })
         });
     }
 })
-
-var onError = function(error) {
-    console.error(`Error: ${error}`);
-}
 
 var match_url = function (url, hosts) {
     var matched = false;
