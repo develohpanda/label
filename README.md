@@ -4,13 +4,13 @@ Use this to differentiate your `dev`, `test`, and `production` environments by a
 
 No more testing on the wrong environment and pulling your hair out as to why your data is differnet, or throwing off your analytics with over 9000 hits to the same page by the same user.
 
-## Supported browsers
+## Browser Support
 
-- [x] Chrome
-- [x] Firefox
-- [] Microsoft Edge
-- [] Safari
-- [] Brave
+:heavy_check_mark: Chrome
+:heavy_check_mark: Firefox
+:x: Microsoft Edge
+:heavy_minus_sign: Safari
+:heavy_minus_sign: Brave
 
 ## Config
 Initially this is configured via a JSON object with the following schema:
