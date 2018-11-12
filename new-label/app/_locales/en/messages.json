@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "label",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "A simple extension to add a sticky label to the top of the page, depending on the hostname.",
+    "description": "The description of the application"
+  }
+}
