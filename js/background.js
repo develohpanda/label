@@ -31,15 +31,18 @@ var match_url = function (url, hosts) {
     var matched = false;
 
     hosts.map(function (host) {
-        var res = getHost(url).match(host);
 
-        if (getHost(url) === host) {
+        if (matchRuleShort(getHost(url), host)) {
             matched = true;
             return false; // break the loop
         }
     })
 
     return matched;
+}
+
+var matchRuleShort = function (str, rule) {
+    return new RegExp("^" + rule.split("*").join(".*") + "$").test(str);
 }
 
 // Why do it this way? Why is this different to the above method?
