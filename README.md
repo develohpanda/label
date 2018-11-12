@@ -84,9 +84,9 @@ To debug in Firefox, you need to add an app id in order to use the storage API. 
 
 ## Tasks
 
-- [] Deploy to Chrome and Firefox
+- [ ] Deploy to Chrome and Firefox
 - [x] Support for wildcards when matching host names (eg. `dev.*.website.com`)
-- [] Make overlay more robust - does not work in certain cases with existing headers. Possibly a z-index issue.
-- [] Add a configuration UI rather than using JSON
-- [] Browser testing
-- [] Microsoft Edge: resolve viewport size not being recognized when setting `width: 100%` via the Bootstrap `.container` class.
+- [ ] Make overlay more robust - does not work in certain cases with existing headers. Possibly a z-index issue.
+- [ ] Add a configuration UI rather than using JSON
+- [ ] Browser testing
+- [ ] Microsoft Edge: resolve viewport size not being recognized when setting `width: 100%` via the Bootstrap `.container` class.
