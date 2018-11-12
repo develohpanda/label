@@ -4,6 +4,12 @@ Use this to differentiate your `dev`, `test`, and `production` environments by a
 
 No more testing on the wrong environment and pulling your hair out as to why your data is differnet, or throwing off your analytics with over 9000 hits to the same page by the same user.
 
+## Features
+
+- Support for `*` wildcards in the host config
+  - eg: `*dev.*.stackoverflow.com` or `test-*.stackoverflow.*`
+- First matched rule will be applied
+
 ## Browser Support
 
 :heavy_check_mark: Google Chrome
@@ -38,22 +44,23 @@ For example:
         "label": "PRODUCTION",
         "color": "#ff8000",
         "hosts": [
-            "www.website.com"
+            "stackoverflow.com"
         ]
     },
     {
         "label": "TEST",
         "color": "#006400",
         "hosts": [
-            "test.website.com"
+            "test-*.stackoverflow.com",
+            "test.*.stackoverflow.com"
+
         ]
     },
     {
         "label": "DEV",
         "color": "#230000",
         "hosts": [
-            "dev.website.com",
-            "dev.authenticate.website.com"
+            "dev.*.stackoverflow.com"
         ]
     }
 ]
@@ -77,8 +84,9 @@ To debug in Firefox, you need to add an app id in order to use the storage API. 
 
 ## Tasks
 
-- Support for wildcards when matching host names (eg. `dev.*.website.com`)
-- Make overlay more robust - does not work in certain cases with existing headers. Possibly a z-index issue.
-- Add a configuration UI rather than using JSON
-- Browser testing
-- Microsoft Edge: resolve viewport size not being recognized when setting `width: 100%` via the Bootstrap `.container` class.
+- [] Deploy to Chrome and Firefox
+- [x] Support for wildcards when matching host names (eg. `dev.*.website.com`)
+- [] Make overlay more robust - does not work in certain cases with existing headers. Possibly a z-index issue.
+- [] Add a configuration UI rather than using JSON
+- [] Browser testing
+- [] Microsoft Edge: resolve viewport size not being recognized when setting `width: 100%` via the Bootstrap `.container` class.
