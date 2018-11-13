@@ -11,7 +11,7 @@ browser.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
         if (matched) {
           var objectToSend = { showHeader: true, label: value.label, color: value.color };
-          browser.tabs.sendMessage(tabId, objectToSend)
+          browser.tabs.sendMessage(tabId, objectToSend);
 
           return false; // break the loop
         }
