@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <title>Popup</title>
   <link rel="stylesheet" type="text/css" href="../styles/popup.css">
 </head>
-<body>
-  
-  <h1 class="m-1">Popup</h1>
 
+<body>
+
+  <div class="container">
+    <div class="sticky-top bg-white pt-1 pb-2">
+      <div class="row justify-content-between">
+        <div class="col-auto">
+          <h4>Settings</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-auto">
+          <button type="button" class="btn btn-primary btn-sm btn-block" id="save">Save</button>
+        </div>
+        <div class="col">
+          <span class="align-middle" id="status"></span>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-outline-secondary btn-sm btn-block float-right" id="populateDefault">Populate
+            Default
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pb-2">
+      <div class="col">
+        <textarea class="text-monospace" id="jsonTextArea" rows="20" cols="35"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/constants.js"></script>
   <script src="../scripts/popup.js"></script>
 </body>
+
 </html>
