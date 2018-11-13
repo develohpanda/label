@@ -1,4 +1,5 @@
 import { load_settings } from './settings';
+import * as matchUrl from 'match-url-wildcard' ;
 
 browser.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   if (changeInfo.status == 'complete') {
@@ -6,40 +7,20 @@ browser.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
     load_settings().then(settingsString => {
       var settings = JSON.parse(settingsString);
-      settings.map(function (value) {
-        var matched = match_url(url, value.hosts);
+      settings.some(function (value) {
+
+        var matched = matchUrl(url, value.hosts);
 
         if (matched) {
           var objectToSend = { showHeader: true, label: value.label, color: value.color };
+          
+          console.info(`Matched with ${value.label}.`)
+
           browser.tabs.sendMessage(tabId, objectToSend);
 
-          return false; // break the loop
+          return true; // break the loop
         }
       })
     });
   }
 })
-
-var match_url = function (url, hosts) {
-  var matched = false;
-
-  hosts.map(function (host) {
-
-    if (matchRuleShort(getHost(url), host)) {
-      matched = true;
-      return false; // break the loop
-    }
-  })
-
-  return matched;
-}
-
-var matchRuleShort = function (str, rule) {
-  return new RegExp("^" + rule.split("*").join(".*") + "$").test(str);
-}
-
-var getHost = function (href) {
-  var l = document.createElement("a");
-  l.href = href;
-  return l.hostname;
-};
