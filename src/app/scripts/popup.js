@@ -1,4 +1,3 @@
-import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import { save_settings, load_settings, defaultSettings } from './settings';
 
