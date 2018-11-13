@@ -1,6 +1,6 @@
 export function load_settings() {
     return browser.storage.sync.get('settings').then((items) => {
-        return items.settings;
+        return items.settings === undefined ? defaultSettings : items.settings;
     });
 }
 
