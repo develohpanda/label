@@ -66,6 +66,26 @@ For example:
 
 Simply clone the repository, open the extensions tab in Chrome ([chrome://extensions](chrome://extensions)), select `Load Unpacked` and then select the root folder.
 
+* [webextension-toolbox](https://github.com/HaNdTriX/webextension-toolbox)
+
+### Install
+
+	$ npm install
+
+### Development
+
+    npm run dev chrome
+    npm run dev firefox
+    npm run dev opera
+    npm run dev edge
+
+### Build
+
+    npm run build chrome
+    npm run build firefox
+    npm run build opera
+    npm run build edge
+
 ### Firefox
 
 To debug in Firefox, you need to add an app id in order to use the storage API. Do this by adding the following property to the `manifest.json`.

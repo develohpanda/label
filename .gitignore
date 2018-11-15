@@ -5,6 +5,6 @@ dist
 .sass-cache
 app/bower_components
 test/bower_components
-package
+packages/
 app/scripts
 
