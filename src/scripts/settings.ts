@@ -1,22 +1,26 @@
 export var loadSettings = async (): Promise<ISettings> => {
-    var items: SettingsStorageObject = await browser.storage.sync.get<SettingsStorageObject>('settings');
+    var items: SettingsStorage = await browser.storage.sync.get<SettingsStorage>();
+    var settings = items.SettingsString;
 
-    if (items.settings === undefined) {
+    if (settings === undefined) {
         return DefaultSettings;
     }
 
-    return items.settings;
+    return {
+        Settings: JSON.parse(settings)
+    };
 }
 
 export var saveSettings = async (settings: ISettings): Promise<void> => {
-    var storageObj: SettingsStorageObject;
-    storageObj.settings = settings;
+    var storageObj: SettingsStorage = {
+        SettingsString: JSON.stringify(settings)
+    };
 
-    await browser.storage.sync.set({ storageObj });
+    await browser.storage.sync.set(storageObj);
 }
 
-type SettingsStorageObject = browser.storage.StorageObject & {
-    settings: ISettings;
+export interface SettingsStorage extends browser.storage.StorageObject{
+    SettingsString: string
 }
 
 export interface ISettings {
@@ -29,7 +33,7 @@ export interface ISetting {
     Hosts: Array<string>;
 }
 
-export const DefaultSettings : ISettings = {
+export const DefaultSettings: ISettings = {
     Settings: [
         {
             Label: "PRODUCTION",
@@ -42,7 +46,7 @@ export const DefaultSettings : ISettings = {
             Label: "TEST",
             Color: "#006400",
             Hosts: [
-                "*o*.com"
+                "*o*.comxcvdf"
             ]
         }
     ]

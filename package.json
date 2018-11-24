@@ -7,8 +7,11 @@
     "build": "webextension-toolbox build -s src -d source-map"
   },
   "devDependencies": {
+    "tslint-loader": "^3.5.4",
+    "typescript": "^3.1.6",
     "web-ext-types": "^3.0.0",
-    "webextension-toolbox": "latest"
+    "webextension-toolbox": "latest",
+    "webpack-watched-glob-entries-plugin": "^2.1.4"
   },
   "dependencies": {
     "awesome-typescript-loader": "^5.2.1",

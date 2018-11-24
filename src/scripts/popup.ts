@@ -16,13 +16,14 @@ var saveOptions = async (): Promise<void> => {
 var restoreOptions = async (): Promise<void> => {
     var settings: ISettings = await loadSettings();
 
-    (<HTMLInputElement>document.getElementById('jsonTextArea')).value = settings.Settings.toString();
+    (<HTMLInputElement>document.getElementById('jsonTextArea')).value = JSON.stringify(settings.Settings, null, 2);
 }
 
 var populateDefault = (): void => {
-    (<HTMLInputElement>document.getElementById('jsonTextArea')).value = DefaultSettings.Settings.toString();
+    (<HTMLInputElement>document.getElementById('jsonTextArea')).value = JSON.stringify(DefaultSettings.Settings, null, 2);
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.getElementById('save').addEventListener('click', saveOptions);
 document.getElementById('populateDefault').addEventListener('click', populateDefault);
+document.getElementById('restore').addEventListener('click', restoreOptions);
