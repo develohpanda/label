@@ -1,4 +1,4 @@
-export var loadSettings = async (): Promise<ISettings> => {
+export var loadSettings: () => Promise<ISettings> = async () => {
     var items: ISettingsStorage = await browser.storage.sync.get<ISettingsStorage>();
     var settings: string = items.SettingsString;
 
@@ -11,7 +11,7 @@ export var loadSettings = async (): Promise<ISettings> => {
     };
 };
 
-export var saveSettings = async (settings: ISettings): Promise<void> => {
+export var saveSettings: (settings: ISettings) => Promise<void> = async (settings) => {
     var storageObj: ISettingsStorage = {
         SettingsString: JSON.stringify(settings)
     };
