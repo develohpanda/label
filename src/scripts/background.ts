@@ -1,22 +1,30 @@
 import { loadSettings, ISettings, ISetting } from './settings';
-import * as matchUrl from 'match-url-wildcard' ;
+import * as matchUrl from 'match-url-wildcard';
 
 browser.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
   if (tab.active && changeInfo.status === 'complete') {
-    var settings : ISettings = await loadSettings();
+    var settings: ISettings = await loadSettings();
 
-    settings.Settings.some(function (value : ISetting) {
-      var matched = matchUrl(value.Hosts);
+    settings.Settings.some(function (setting: ISetting) {
+      var matched = matchUrl(setting.Hosts);
 
       if (matched) {
-        var objectToSend = { showHeader: true, label: value.Label, color: value.Color };
-        
-        console.info(`Matched with ${value.Label}.`)
+        var message: IMessage = {
+          ShowHeader: true,
+          Label: setting.Label,
+          Color: setting.Color
+        };
 
-        browser.tabs.sendMessage(tabId, objectToSend);
+        browser.tabs.sendMessage(tabId, message);
 
         return true; // break the loop
       }
-    });    
+    });
   }
 })
+
+export interface IMessage {
+  ShowHeader: boolean;
+  Label: string;
+  Color: string;
+}
