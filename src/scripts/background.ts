@@ -1,12 +1,13 @@
-import { loadSettings, ISettings, ISetting } from './settings';
-import * as matchUrl from 'match-url-wildcard';
+import { loadSettings, ISettings, ISetting } from "./settings";
+import * as matchUrl from "match-url-wildcard";
 
+// tslint:disable-next-line:typedef
 browser.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
-  if (tab.active && changeInfo.status === 'complete') {
+  if (tab.active && changeInfo.status === "complete") {
     var settings: ISettings = await loadSettings();
 
-    settings.Settings.some(function (setting: ISetting) {
-      var matched = matchUrl(setting.Hosts);
+    settings.Settings.some((setting: ISetting): boolean => {
+      var matched: boolean = matchUrl(setting.Hosts);
 
       if (matched) {
         var message: IMessage = {
@@ -21,7 +22,7 @@ browser.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
       }
     });
   }
-})
+});
 
 export interface IMessage {
   ShowHeader: boolean;
