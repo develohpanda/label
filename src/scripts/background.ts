@@ -7,7 +7,7 @@ browser.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
     var settings: ISettings = await loadSettings();
 
     settings.Settings.some((setting: ISetting): boolean => {
-      var matched: boolean = matchUrl(setting.Hosts);
+      var matched: boolean = matchUrl(tab.url, setting.Hosts);
 
       if (matched) {
         var message: IMessage = {
