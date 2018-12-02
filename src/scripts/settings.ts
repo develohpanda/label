@@ -39,14 +39,14 @@ export const DefaultSettings: ISettings = {
             Label: "PRODUCTION",
             Color: "#ff8000",
             Hosts: [
-                "*e*.com"
+                "developer.chrome.com"
             ]
         },
         {
             Label: "TEST",
             Color: "#006400",
             Hosts: [
-                "*o*.comxcvdf"
+                "test.*.chrome.com"
             ]
         }
     ]
