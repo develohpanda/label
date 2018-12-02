@@ -8,7 +8,7 @@
     "description": "The short_name (maximum of 12 characters recommended) is a short version of the app's name."
   },
   "appDescription": {
-    "message": "A simple extension to add a sticky label to the top of the page, depending on the hostname.",
+    "message": "A simple extension to add a sticky label to the top of the page, depending on the url.",
     "description": "The description of the application"
   },
   "browserActionTitle": {
