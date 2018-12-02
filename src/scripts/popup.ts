@@ -32,4 +32,4 @@ var populateDefault: EventListenerOrEventListenerObject = {
 document.addEventListener("DOMContentLoaded", restoreOptions);
 document.getElementById("save").addEventListener("click", saveOptions);
 document.getElementById("populateDefault").addEventListener("click", populateDefault);
-document.getElementById("restore").addEventListener("click", restoreOptions);
+// document.getElementById("restore").addEventListener("click", restoreOptions);
