@@ -1,4 +1,4 @@
-# Label
+# label
 
 Use this to differentiate your `dev`, `test`, and `production` environments by adding a loud color and label, without mucking with your source code.
 
