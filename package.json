@@ -12,7 +12,7 @@
     "typescript": "^3.1.6",
     "web-ext-types": "^3.0.0",
     "webextension-toolbox": "latest",
-    "webpack-watched-glob-entries-plugin": "^2.1.4"
+    "webpack-watched-glob-entries-plugin": "^2.1.5"
   },
   "dependencies": {
     "awesome-typescript-loader": "^5.2.1",
