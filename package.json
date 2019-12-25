@@ -22,6 +22,6 @@
     "match-url-wildcard": "0.0.2",
     "popper.js": "^1.14.5",
     "source-map-loader": "^0.2.4",
-    "style-loader": "^0.23.1"
+    "style-loader": "^1.1.2"
   }
 }
