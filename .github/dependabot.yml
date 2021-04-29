@@ -1,0 +1,21 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "17:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: css-loader
+    versions:
+    - 5.0.1
+  - dependency-name: webpack-watched-glob-entries-plugin
+    versions:
+    - 2.1.7
+  - dependency-name: typescript
+    versions:
+    - 3.9.7
+  - dependency-name: elliptic
+    versions:
+    - 6.5.3
